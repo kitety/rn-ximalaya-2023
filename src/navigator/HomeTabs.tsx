@@ -16,11 +16,13 @@ const HomeTabs = () => {
           width: 20,
           marginLeft: 30,
           borderRadius: 2,
+          backgroundColor: '#f86442',
         },
+        tabBarActiveTintColor: '#f86442',
+        tabBarInactiveTintColor: '#333',
+        lazy: true,
       }}>
-      <Tab.Screen name="Home" component={Home} />
-      <Tab.Screen name="Home1" component={Home} />
-      <Tab.Screen name="Home2" component={Home} />
+      <Tab.Screen name="推荐" component={Home} />
     </Tab.Navigator>
   );
 };

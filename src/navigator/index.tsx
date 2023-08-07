@@ -32,7 +32,9 @@ const Navigator = () => {
           cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
           gestureEnabled: true,
           gestureDirection: 'horizontal',
+          // headerStatusBarHeight: StatusBar.currentHeight,
           headerStyle: {
+            // backgroundColor: '#f86442',
             ...Platform.select({
               android: {
                 elevation: 0,
