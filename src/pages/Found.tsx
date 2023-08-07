@@ -5,7 +5,7 @@ interface IProps {
   navigation: RootStackNavigation;
 }
 
-const Home = (props: IProps) => {
+const Found = (props: IProps) => {
   const onPress = () => {
     props.navigation.navigate('Detail', {
       id: 100,
@@ -13,9 +13,9 @@ const Home = (props: IProps) => {
   };
   return (
     <View>
-      <Text>Home</Text>
+      <Text>Found</Text>
       <Button title="跳转到详情页" onPress={onPress} />
     </View>
   );
 };
-export default Home;
+export default Found;
