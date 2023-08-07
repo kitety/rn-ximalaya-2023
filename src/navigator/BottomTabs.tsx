@@ -1,6 +1,5 @@
 import React, {useEffect} from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import Home from '@/pages/Home';
 import Account from '@/pages/Account';
 import Listen from '@/pages/Listen';
 import Found from '@/pages/Found';
@@ -11,9 +10,11 @@ import {
   useNavigation,
   useNavigationState,
 } from '@react-navigation/native';
+import Icon from '@/assets/iconfont';
+import HomeTabs from '@/navigator/HomeTabs';
 
 export type BottomTabParamList = {
-  Home: undefined;
+  HomeTabs: undefined;
   Listen: undefined;
   Found: undefined;
   Account: undefined;
@@ -27,9 +28,9 @@ const getHeaderTitle = (route: Route) => {
   const routeName =
     route?.state?.routes[route?.state?.index].name ||
     route?.params?.screen ||
-    'Home';
+    'HomeTabs';
   switch (routeName) {
-    case 'Home':
+    case 'HomeTabs':
       return '首页';
     case 'Listen':
       return '我听';
@@ -59,10 +60,13 @@ const BottomTabs = () => {
         headerShown: false,
       }}>
       <Tab.Screen
-        name="Home"
-        component={Home}
+        name="HomeTabs"
+        component={HomeTabs}
         options={{
           tabBarLabel: '首页',
+          tabBarIcon: ({color, size}) => (
+            <Icon name="icon-shouye" size={size} color={color} />
+          ),
         }}
       />
       <Tab.Screen
@@ -70,6 +74,9 @@ const BottomTabs = () => {
         component={Listen}
         options={{
           tabBarLabel: '我听',
+          tabBarIcon: ({color, size}) => (
+            <Icon name="icon-shoucang" size={size} color={color} />
+          ),
         }}
       />
       <Tab.Screen
@@ -77,6 +84,9 @@ const BottomTabs = () => {
         component={Found}
         options={{
           tabBarLabel: '发现',
+          tabBarIcon: ({color, size}) => (
+            <Icon name="icon-faxian" size={size} color={color} />
+          ),
         }}
       />
       <Tab.Screen
@@ -84,6 +94,9 @@ const BottomTabs = () => {
         component={Account}
         options={{
           tabBarLabel: '我的',
+          tabBarIcon: ({color, size}) => (
+            <Icon name="icon-user" size={size} color={color} />
+          ),
         }}
       />
     </Tab.Navigator>
