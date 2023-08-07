@@ -56,6 +56,7 @@ const BottomTabs = () => {
     <Tab.Navigator
       screenOptions={{
         tabBarActiveTintColor: '#f86442',
+        headerShown: false,
       }}>
       <Tab.Screen
         name="Home"
