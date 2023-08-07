@@ -2973,6 +2973,21 @@ dva-core-ts@^2.0.7:
     redux-saga "^0.16.0"
     warning "^3.0.0"
 
+dva-immer@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.npmmirror.com/dva-immer/-/dva-immer-1.0.1.tgz#209b9fbf995147bb6c1dcdd9e9beea883a9b159c"
+  integrity sha512-Oe+yFTtu2UMNcMoBLLTa/ms1RjUry38Yf0ClN8LiHbF+gT2QAdLYLk3miu1dDtm3Sxl9nk+DH1edKX0Hy49uQg==
+  dependencies:
+    "@babel/runtime" "^7.0.0"
+    immer "^8.0.4"
+
+dva-loading-ts@^3.0.23:
+  version "3.0.23"
+  resolved "https://registry.npmmirror.com/dva-loading-ts/-/dva-loading-ts-3.0.23.tgz#2859c0e6be6cbb11f028831f003fb3c8456b6a2a"
+  integrity sha512-+WyVm7OyAC0aUBdy7tPb7upyTJnJ4lyA1yCj2F5FYQ0KolI2KXSnk8tx8OVr38bFmXcns184pt9FE37Puq+J7A==
+  dependencies:
+    "@babel/runtime" "^7.0.0"
+
 ee-first@1.1.1:
   version "1.1.1"
   resolved "https://registry.npmmirror.com/ee-first/-/ee-first-1.1.1.tgz"
@@ -3796,6 +3811,11 @@ image-size@^1.0.2:
   integrity sha512-xfOoWjceHntRb3qFCrh5ZFORYH8XCdYpASltMhZ/Q0KZiOwjdE/Yl2QCiWdwD+lygV5bMCvauzgu5PxBX/Yerg==
   dependencies:
     queue "6.0.2"
+
+immer@^8.0.4:
+  version "8.0.4"
+  resolved "https://registry.npmmirror.com/immer/-/immer-8.0.4.tgz#3a21605a4e2dded852fb2afd208ad50969737b7a"
+  integrity sha512-jMfL18P+/6P6epANRvRk6q8t+3gGhqsJ9EuJ25AXE+9bNTYtssvzeYbEd0mXRYWCmmXSIbnlpz6vd6iJlmGGGQ==
 
 import-fresh@^2.0.0:
   version "2.0.0"
