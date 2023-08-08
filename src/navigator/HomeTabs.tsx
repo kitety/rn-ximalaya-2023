@@ -1,5 +1,5 @@
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
-import Home from '@/pages/Home';
+import Index from '@/pages/Home';
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -22,7 +22,7 @@ const HomeTabs = () => {
         tabBarInactiveTintColor: '#333',
         lazy: true,
       }}>
-      <Tab.Screen name="推荐" component={Home} />
+      <Tab.Screen name="推荐" component={Index} />
     </Tab.Navigator>
   );
 };

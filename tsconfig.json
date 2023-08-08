@@ -24,6 +24,8 @@
       ],
       "@/utils/*": [
         "utils/*"
+      ],"@/models/*": [
+        "models/*"
       ]
     }
   }
