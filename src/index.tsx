@@ -2,6 +2,7 @@ import Navigator from '@/navigator/index';
 import store from '@/config/dva';
 import {Provider} from 'react-redux';
 import {StatusBar} from 'react-native';
+import '@/config/http';
 
 const App = () => {
   console.log(store);

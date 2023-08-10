@@ -3,9 +3,12 @@ import SnapCarousel, {
   AdditionalParallaxProps,
   Pagination,
   ParallaxImage,
-} from 'react-native-snap-carousel';
+} from 'react-native-snap-carousel'; // 给我六张cdn的图片
 import {StyleSheet, View} from 'react-native';
-import {hp, viewportWidth, wp} from '@/utils/index'; // 给我六张cdn的图片
+import {hp, viewportWidth, wp} from '@/utils/index';
+import {HomeState, ICarousel} from '@/models/home';
+import {useSelector} from 'react-redux';
+import {RootState} from '@/models/index';
 
 // 给我六张cdn的图片
 const data = [
@@ -20,14 +23,18 @@ const data = [
 const sliderWidth = viewportWidth;
 const imageWidth = wp(90);
 const imageHeight = hp(26);
+
 const Carousel = () => {
+  const {carousel} = useSelector<RootState, HomeState>(
+    (state: any) => state.home,
+  );
   const [activeIndex, setActiveIndex] = useState(0);
   const getPaginationElement = () => {
     return (
       <View style={styles.paginationWrapper}>
         <Pagination
           containerStyle={styles.paginationContainer}
-          dotsLength={data.length}
+          dotsLength={carousel.length}
           activeDotIndex={activeIndex}
           dotContainerStyle={styles.dotContainer}
           dotStyle={styles.dot}
@@ -38,12 +45,17 @@ const Carousel = () => {
     );
   };
   const renderItem = (
-    item: {item: string; index: number},
+    {
+      item,
+    }: {
+      item: ICarousel;
+      index: number;
+    },
     parallaxProps: AdditionalParallaxProps = {},
   ) => {
     return (
       <ParallaxImage
-        source={{uri: item.item}}
+        source={{uri: item.image}}
         style={styles.image}
         containerStyle={styles.container}
         showSpinner
@@ -54,10 +66,10 @@ const Carousel = () => {
   };
   return (
     <View>
-      <SnapCarousel<string>
+      <SnapCarousel<ICarousel>
         loop
         autoplay
-        data={data}
+        data={carousel}
         hasParallaxImages
         itemWidth={itemWidth}
         renderItem={renderItem}
