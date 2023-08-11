@@ -2,7 +2,10 @@ import {Effect, Model} from 'dva-core-ts';
 import {Reducer} from 'redux';
 import axios from 'axios';
 
+// 轮播图
 const CAROUSEL_URL = '/mock/11/bear/carousel';
+// 猜你喜欢
+const GUESS_URL = '/mock/11/bear/guess';
 
 export interface ICarousel {
   id: string;
@@ -10,8 +13,15 @@ export interface ICarousel {
   colors: [string, string];
 }
 
+export interface IGuess {
+  id: string;
+  image: string;
+  title: string;
+}
+
 export interface HomeState {
   carousel: ICarousel[];
+  guess: IGuess[];
 }
 
 interface HomeModel extends Model {
@@ -22,11 +32,13 @@ interface HomeModel extends Model {
   };
   effects: {
     fetchCarousels: Effect;
+    fetchGuess: Effect;
   };
 }
 
 const initState = {
   carousel: [],
+  guess: [],
 };
 const homeModel: HomeModel = {
   namespace: 'home',
@@ -47,6 +59,16 @@ const homeModel: HomeModel = {
         type: 'setState',
         payload: {
           carousel: data,
+        },
+      });
+    },
+    *fetchGuess(_, {call, put}) {
+      const {data} = yield call(axios.get, GUESS_URL);
+      console.log({data});
+      yield put({
+        type: 'setState',
+        payload: {
+          guess: data,
         },
       });
     },
